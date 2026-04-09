@@ -1,7 +1,7 @@
 /**
  * Authentication Manager - Pure JavaScript with localStorage
- * Passwords are hashed using bcryptjs for security
- * No backend needed - all data stored locally
+ * Loads user data from data/auth.json on page load
+ * Passwords are hashed using client-side hashing
  */
 
 class AuthManager {
@@ -12,10 +12,32 @@ class AuthManager {
     }
 
     /**
-     * Initialize default users if not exist
+     * Load users from auth.json file and initialize localStorage
      */
-    initializeUsers() {
-        if (!localStorage.getItem(this.usersKey)) {
+    async initializeUsers() {
+        const users = localStorage.getItem(this.usersKey);
+        
+        // If already initialized, skip
+        if (users) {
+            return;
+        }
+
+        try {
+            // Fetch data from auth.json
+            const response = await fetch('../data/auth.json');
+            if (!response.ok) {
+                throw new Error('Failed to load auth.json');
+            }
+            
+            const data = await response.json();
+            
+            // Store users in localStorage
+            if (data.users && Array.isArray(data.users)) {
+                localStorage.setItem(this.usersKey, JSON.stringify(data.users));
+            }
+        } catch (error) {
+            console.error('Error loading auth.json:', error);
+            // Fallback: create default user if load fails
             const defaultUsers = [
                 {
                     id: 1,
@@ -23,7 +45,6 @@ class AuthManager {
                     lastName: 'User',
                     email: 'demo@example.com',
                     phone: '0901234567',
-                    // Pre-hashed password: "Demo123!" (using bcryptjs)
                     password: '$2a$10$WvJBe6oLdPHjNqRKsGQ9He3JI0uN0OUbqHfZ6GhEcyI4o2DWpbQe.',
                     createdAt: new Date().toISOString()
                 }
