@@ -255,6 +255,11 @@ header.scrolled {
     margin-bottom: 0;
 }
 
+.link-to-news {
+    text-align: center;
+   margin-top: 50px;
+}
+
 
 .newsletter-container {
     text-align: center;
