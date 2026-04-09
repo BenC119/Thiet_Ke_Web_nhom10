@@ -39,8 +39,9 @@
     </header>
 
     <section id="hero" class="hero video-hero">
-        <video autoplay muted loop playsinline class="hero-bg-video">
-            <source src="video/baner.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="hero-bg-video" onerror="this.style.display='none'">
+            <source src="../video/baner.mp4" type="video/mp4">
+            <img src="../assets/hero-bg.jpg" alt="Hero Banner" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
         </video>
         <div class="hero-content fade-in">
             <h1>VANGUARD <span>HYPERCARS</span></h1>
