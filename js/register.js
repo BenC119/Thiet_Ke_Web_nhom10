@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = document.getElementById('reg-phone').value.trim();
             const password = document.getElementById('reg-password').value;
             const confirmPassword = document.getElementById('reg-confirm').value;
-            const termsCheckbox = document.querySelector('input[name="terms"]');
 
             // Clear previous errors
             clearErrors();
@@ -58,11 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (password !== confirmPassword) {
                 showError('reg-confirm', 'Mật khẩu xác nhận không khớp');
-                isValid = false;
-            }
-
-            if (!termsCheckbox.checked) {
-                showToast('Vui lòng chấp nhận Điều khoản dịch vụ', 'error');
                 isValid = false;
             }
 
