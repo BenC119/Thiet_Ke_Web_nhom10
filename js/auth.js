@@ -162,15 +162,22 @@ class AuthManager {
         const user = this.getCurrentUser();
         const authLinks = document.querySelectorAll('.auth-link');
         const navLinks = document.getElementById('nav-links');
+        const formatFullName = (currentUser) => `${currentUser.lastName} ${currentUser.firstName}`.trim();
 
         if (!authLinks || authLinks.length < 2) return;
 
-        const loginLink = authLinks[0]; 
-        const registerLink = authLinks[1]; 
+        const loginLink = authLinks[0];
+        const registerLink = authLinks[1];
+        const loginItem = loginLink.closest('li');
+        const registerItem = registerLink.closest('li');
 
         if (user) {
-            loginLink.style.display = 'none';
-            registerLink.style.display = 'none';
+            if (loginItem) {
+                loginItem.style.display = 'none';
+            }
+            if (registerItem) {
+                registerItem.style.display = 'none';
+            }
 
             let userProfileItem = navLinks.querySelector('.user-profile-item');
             if (!userProfileItem) {
@@ -180,19 +187,10 @@ class AuthManager {
                     <div class="user-profile-dropdown">
                         <button class="user-profile-btn">
                             <i class="fas fa-user-circle"></i>
-                            <span class="user-name">${user.firstName} ${user.lastName}</span>
+                            <span class="user-name">${formatFullName(user)}</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item profile-link">
-                                <i class="fas fa-user"></i> Tài khoản
-                            </a>
-                            <a href="#" class="dropdown-item profile-link">
-                                <i class="fas fa-user"></i> Yêu thích
-                            </a>
-                            <a href="#" class="dropdown-item profile-link">
-                                <i class="fas fa-user"></i> Đơn hàng
-                            </a>
                             <a href="#" class="dropdown-item logout-link">
                                 <i class="fas fa-sign-out-alt"></i> Đăng xuất
                             </a>
@@ -207,11 +205,13 @@ class AuthManager {
                 profileBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     dropdownMenu.classList.toggle('show');
+                    profileBtn.classList.toggle('active');
                 });
 
                 document.addEventListener('click', (e) => {
                     if (!userProfileItem.contains(e.target)) {
                         dropdownMenu.classList.remove('show');
+                        profileBtn.classList.remove('active');
                     }
                 });
 
@@ -222,15 +222,26 @@ class AuthManager {
                         this.logout();
                     }
                 });
+
+                const profileLinks = userProfileItem.querySelectorAll('.profile-link');
+                profileLinks.forEach((profileLink) => {
+                    profileLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                    });
+                });
             } else {
                 const userNameSpan = userProfileItem.querySelector('.user-name');
                 if (userNameSpan) {
-                    userNameSpan.textContent = `${user.firstName} ${user.lastName}`;
+                    userNameSpan.textContent = formatFullName(user);
                 }
             }
         } else {
-            loginLink.style.display = 'block';
-            registerLink.style.display = 'block';
+            if (loginItem) {
+                loginItem.style.display = '';
+            }
+            if (registerItem) {
+                registerItem.style.display = '';
+            }
 
             const userProfileItem = navLinks.querySelector('.user-profile-item');
             if (userProfileItem) {
