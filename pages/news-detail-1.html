@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanguard HyperCars | Bộ Sưu Tập Xe</title>
+    <title>Đánh giá siêu xe Ferrari SF90 Stradale tại Việt Nam - Vanguard HyperCars</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <meta name="description" content="Khám phá bộ sưu tập siêu xe đỉnh cao của Vanguard HyperCars — Ferrari, Lamborghini, McLaren, Porsche và Bugatti.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/cars.css">
 </head>
 <body>
-    <div class="custom-cursor" id="customCursor"></div>
 
+    <div class="custom-cursor" id="customCursor"></div>
 
     <header id="header">
         <div class="container flex-nav">
@@ -25,7 +24,7 @@
                 </svg>
                 VANGUARD HYPERCARS
             </div>
-
+            
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -36,9 +35,9 @@
                 <ul class="nav-links" id="nav-links">
                     <li><a href="home.html">TRANG CHỦ</a></li>
                     <li><a href="about.html">GIỚI THIỆU</a></li>
-                    <li><a href="cars.html" class="active">BỘ SƯU TẬP XE</a></li>
+                    <li><a href="cars.html">BỘ SƯU TẬP XE</a></li>
                     <li><a href="contact.html">LIÊN HỆ</a></li>
-                    <li><a href="news.html">TIN TỨC</a></li>
+                    <li><a href="news.html" class="active">TIN TỨC</a></li>
                     <li class="auth-link"><a href="login.html">ĐĂNG NHẬP</a></li>
                     <li class="auth-link"><a href="register.html">ĐĂNG KÝ</a></li>
                 </ul>
@@ -46,61 +45,31 @@
         </div>
     </header>
 
-
-    <section class="cars-hero contact-hero section-padding">
+    <section class="section-padding" style="padding-top: 150px; background-color: var(--bg-darker);">
         <div class="container">
-            <div class="contact-hero-content fade-in" style="display:flex;flex-direction:column;align-items:center;">
-                <div class="yellow-dot"></div>
-                <h1 class="contact-title" style="border:none;color:#fff;">BỘ SƯU TẬP XE</h1>
-                <p>Khám phá các cỗ máy tốc độ tối thượng của Vanguard HyperCars</p>
+            <div class="article-detail fade-in">
+                <h1>Bugatti Mistral Caroline - siêu xe lấy cảm hứng từ hoa oải hương</h1>
+                <div class="article-meta">
+                    <span><i class="fa-regular fa-calendar"></i> 08/04/2026</span>
+                    <span><i class="fa-solid fa-folder"></i> Xe mới</span>
+                </div>
+                <p class="article-lead">Một tuyệt phẩm cá nhân hóa mang sắc tím Lavender độc bản, thể hiện tình yêu của một người cha dành cho con gái.</p>
+                <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=1000&auto=format&fit=crop" alt="Bugatti Mistral Caroline">
+                <p>Chiếc Bugatti Mistral này là thành quả của bộ phận cá nhân hóa 'Sur Mesure', được đặt tên theo con gái của chủ sở hữu - Caroline. Điểm nhấn lớn nhất là màu sơn tím oải hương kết hợp với các chi tiết carbon trần cực kỳ tinh xảo.</p>
+                <p>Dưới nắp máy vẫn là khối động cơ W16 huyền thoại, giúp chiếc roadster này đạt tốc độ tối đa vượt ngưỡng 420 km/h, trở thành một trong những mẫu xe mui trần nhanh nhất thế giới.</p>
+                <div class="article-source">
+                    <div><strong>Tác giả:</strong> Minh Quân (theo Carscoops)</div>
+                    <div><strong>Nguồn:</strong> <a href="https://vnexpress.net" target="_blank">VnExpress</a></div>
+                </div>
+            </div>
+                        
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <a href="news.html" class="btn-back-news">&lt;&lt; Quay lại bảng tin</a>
             </div>
         </div>
     </section>
 
-
-    <section class="cars-filter-section">
-        <div class="container">
-            <div class="cars-filter-bar fade-in">
-                <button class="cars-filter-btn active" data-brand="all">Tất cả</button>
-                <button class="cars-filter-btn" data-brand="Ferrari">Ferrari</button>
-                <button class="cars-filter-btn" data-brand="Lamborghini">Lamborghini</button>
-                <button class="cars-filter-btn" data-brand="McLaren">McLaren</button>
-                <button class="cars-filter-btn" data-brand="Porsche">Porsche</button>
-                <button class="cars-filter-btn" data-brand="Bugatti">Bugatti</button>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="collection-section section-padding">
-        <div class="container collection-layout">
-
-      
-            <aside class="collection-sidebar" id="collectionSidebar">
-             
-            </aside>
-
-            
-            <main class="collection-main" id="collectionMain">
-          
-            </main>
-
-        </div>
-    </section>
-
-
-    <div class="car-detail-modal" id="carDetailModal">
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal-content" id="modalContent">
-            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-            <div class="modal-body" id="modalBody">
-               
-            </div>
-        </div>
-    </div>
-
-   
-    <footer class="site-footer">
+   <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-col">
                 <div class="logo">
@@ -155,10 +124,8 @@
         </div>
     </footer>
 
-   <script src="../js/database.js"></script>
     <script src="../js/auth-helper.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/home.js"></script>
-    <script src="../js/cars.js"></script>
 </body>
 </html>

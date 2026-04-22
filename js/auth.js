@@ -68,7 +68,7 @@ class AuthManager {
         if (users.find(u => u.email === email)) {
             return {
                 success: false,
-                message: 'Email đã được đăng ký!'
+                message: 'Email này đã được đăng ký'
             };
         }
 
@@ -187,13 +187,10 @@ class AuthManager {
                     <div class="user-profile-dropdown">
                         <button class="user-profile-btn">
                             <i class="fas fa-user-circle"></i>
-                            <span class="user-name">${user.firstName} ${user.lastName}</span>
+                            <span class="user-name">${formatFullName(user)}</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item profile-link">
-                                <i class="fas fa-user"></i> Tài khoản
-                            </a>
                             <a href="#" class="dropdown-item logout-link">
                                 <i class="fas fa-sign-out-alt"></i> Đăng xuất
                             </a>

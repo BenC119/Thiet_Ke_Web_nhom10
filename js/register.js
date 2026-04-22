@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             showToast(result.message, 'success');
 
-            // Redirect after 1.5 seconds
             setTimeout(() => {
                 window.location.href = 'home.html';
             }, 1500);
